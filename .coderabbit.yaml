@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: ko-KR
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  review_status: true
+  collapse_walkthrough: true
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches: ["^develop$", "^main$"]
+  path_filters:
+    - "!**/node_modules/**"
+    - "!**/build/**"
+    - "!**/dist/**"
+    - "!**/.next/**"
+    - "!**/.venv/**"
+    - "!**/package-lock.json"
+    - "!**/uv.lock"
+  path_instructions:
+    - path: "**/*"
+      instructions: >-
+        모두타는 공공자전거 시민 앱, 재배치 기사 앱, 관리자 웹, 백엔드와 AI 서비스로 구성됩니다.
+        권한과 기관별 데이터 범위, 위치정보·개인정보·시크릿 노출, 대여·반납·결제의 중복 요청과 동시성,
+        외부 공공 API 지연·오류·오래된 데이터 처리, 재배치 업무 상태 전이의 오류를 우선 확인하세요.
+        실제 변경과 관련된 문제만 지적하고 아직 구현하지 않은 기능을 필수로 요구하지 마세요.
+        lint나 포맷터로 검증 가능한 단순 스타일 및 작업 중 커밋 메시지 형식은 중복 지적하지 마세요.
+        PR 제목은 Conventional Commits를 사용하며 WBS 번호를 강제하지 않습니다.
+        API·이벤트·데이터 계약 변경 시 관련 명세와 실패 경로 테스트를 확인하세요.
+chat:
+  auto_reply: true
