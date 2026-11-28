@@ -23,8 +23,8 @@ jobs:
         run: |
           import os, re, sys
           title = os.environ['TITLE']
-          pattern = r'(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert|infra)(\([a-zA-Z0-9_./-]+\))?!?: [^\s].*'
-          if not re.fullmatch(pattern, title) or title != title.strip():
+          pattern = r'(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert|infra)(\([^\s():]+\))?!?: [^\s].*'
+          if not re.fullmatch(pattern, title, flags=re.IGNORECASE) or title != title.strip():
               sys.exit('PR 제목 예시: feat: 자전거 대여 추가 / fix(auth): 만료 처리 수정')
           if os.environ['REPO'] != '.github' and os.environ['BASE'] == 'main' and os.environ['BRANCH'] != 'develop':
               sys.exit('서비스의 main 반영은 develop → main PR로 진행합니다')
